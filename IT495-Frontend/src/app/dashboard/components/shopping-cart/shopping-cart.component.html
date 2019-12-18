@@ -1,0 +1,43 @@
+<app-navigation></app-navigation>
+
+<div>
+  <mat-card class="w-60  shoe">
+    <div class="card-style" *ngFor="let item of items">
+      <img
+        [src]="'data:image/png;base64,' + item.shoe.imagePath"
+        class="image-card"
+        alt="image of the shoe"
+        height="auto"
+        width="100%"
+      />
+      <div>
+        <h1>{{ item.shoe.name }}</h1>
+        <p>Size: {{ item.size.value }}</p>
+
+        <p>Quantity: {{ item.quantity }}</p>
+      </div>
+      <div>
+        <p class="price">
+          Price: <span>{{ item.shoe.price }} </span> RSD
+        </p>
+        <button
+          mat-button
+          color="warn"
+          (click)="removeFromCart(item)"
+          [disabled]="!items"
+        >
+          Remove
+        </button>
+      </div>
+    </div>
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      (click)="makePuchase()"
+      [disabled]="!items"
+    >
+      Make purchase
+    </button>
+  </mat-card>
+</div>

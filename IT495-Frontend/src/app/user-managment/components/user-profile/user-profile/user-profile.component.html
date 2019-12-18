@@ -1,0 +1,130 @@
+<app-navigation></app-navigation>
+<h2 class="center m-10">Profile Informations</h2>
+<p class="center small-span m-10">
+  You can edit your profile informations in the case change your billing address
+  or phone number
+</p>
+<form #editProfileForm class="grid-2 m-10">
+  <div class="form-group">
+    <mat-form-field>
+      <input
+        disabled="true"
+        matInput
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter e-mail address"
+        [(ngModel)]="user.email"
+        required
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Enter first name"
+        id="firstName"
+        name="firstName"
+        [(ngModel)]="user.firstName"
+        [disabled]="!editClicked"
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Last name"
+        id="lastName"
+        name="lastName"
+        [(ngModel)]="user.lastName"
+        [disabled]="!editClicked"
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="Phone number"
+        id="cellphone"
+        name="cellphone"
+        [(ngModel)]="user.phoneNumber"
+        [disabled]="!editClicked"
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Address"
+        id="address"
+        name="address"
+        [(ngModel)]="user.address"
+        [disabled]="!editClicked"
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Postal code"
+        id="postalCode"
+        name="postalCode"
+        [(ngModel)]="user.postalCode"
+        [disabled]="!editClicked"
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="City"
+        id="city"
+        name="city"
+        [(ngModel)]="user.city"
+        [disabled]="!editClicked"
+      />
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Country"
+        id="country"
+        name="country"
+        [(ngModel)]="user.country"
+        [disabled]="!editClicked"
+      />
+    </mat-form-field>
+  </div>
+</form>
+<div class="center" *ngIf="editableMode">
+  <button mat-button mat-raised-button (click)="onEdit()" color="primary">
+    Edit
+  </button>
+</div>
+<div class="center" *ngIf="editClicked">
+  <button
+    mat-button
+    mat-raised-button
+    color="primary"
+    [disabled]="editProfileForm.invalid"
+    type="submit"
+    (click)="submitEditProfile()"
+  >
+    Submit
+  </button>
+</div>

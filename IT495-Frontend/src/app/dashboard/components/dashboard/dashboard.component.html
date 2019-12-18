@@ -1,0 +1,139 @@
+<app-navigation></app-navigation>
+<div class="filter-position">
+  <form #filterForm class="form-position">
+    <div class="form-group">
+      <mat-form-field>
+        <input
+          matInput
+          name="dateFrom"
+          [matDatepicker]="pickerFrom"
+          placeholder="From"
+          [(ngModel)]="filter.dateFrom"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="pickerFrom"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #pickerFrom></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <input
+          matInput
+          name="dateTo"
+          [matDatepicker]="pickerTo"
+          placeholder="To"
+          [(ngModel)]="filter.dateTo"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="pickerTo"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #pickerTo></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <input
+          type="number"
+          name="priceFrom"
+          matInput
+          placeholder="price from"
+          [(ngModel)]="filter.priceFrom"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <input
+          type="number"
+          matInput
+          name="priceTo"
+          placeholder="Price to"
+          [(ngModel)]="filter.priceTo"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <mat-label>Shoe category</mat-label>
+        <mat-select
+          [disabled]="disabled"
+          id="category"
+          name="category"
+          [(ngModel)]="filter.idCategory"
+        >
+          <mat-option
+            *ngFor="let category of categories"
+            [(value)]="category.id"
+          >
+            {{ category.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <mat-label>Order By</mat-label>
+        <mat-select
+          [disabled]="disabled"
+          id="order"
+          name="order"
+          [(ngModel)]="filter.order"
+        >
+          <mat-option *ngFor="let order of orders" [(value)]="order">
+            {{ order }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+  <button mat-button color="primary" (click)="filterItems()">Filter</button>
+  <button mat-button color="accent" (click)="filterForm.reset()">
+    Reset inputs
+  </button>
+</div>
+
+<div class="shoe-dashboard">
+  <mat-card class="" *ngFor="let shoe of shoes">
+    <div class="card-style">
+      <img
+        [src]="'data:image/png;base64,' + shoe.imagePath"
+        height="auto"
+        width="100%"
+        class="image-card"
+        alt="image of the shoe"
+      />
+      <div>
+        <div>
+          <h1 class="header">{{ shoe.name }}</h1>
+          <p class="regular-typo">
+            Category: <span class="blue"> {{ shoe.categoryName }} </span>
+          </p>
+          <p class="price">
+            Price:<br />
+            <span>{{ shoe.price }} </span> RSD
+          </p>
+        </div>
+        <div></div>
+      </div>
+      <div>
+        <p class="small-typo">
+          Pairs sold:
+          <span class="blue regular-typo"> {{ shoe.popularity }} </span>
+        </p>
+        <p class="small-typo">
+          Release date:
+          <span class="blue">{{ shoe.releseDate | date: "dd/MM/yyyy" }} </span>
+        </p>
+        <span
+          *ngIf="role === 'USER'"
+          routerLink="/home/{{ shoe.id }}"
+          class="right-align"
+          >Shop now...</span
+        >
+      </div>
+    </div>
+  </mat-card>
+</div>

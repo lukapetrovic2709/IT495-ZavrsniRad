@@ -1,0 +1,23 @@
+<div class="center-wrapper center">
+  <mat-card *ngIf="!error" class="w-60">
+    <h4>Proceed Your Verification</h4>
+    <br />
+    <button
+      mat-button
+      mat-raised-button
+      color="primary"
+      class="primary-button"
+      (click)="verifyUser()"
+    >
+      Confirm
+    </button>
+  </mat-card>
+
+  <mat-card *ngIf="error" class="w-60">
+    <h4>Something went wrong</h4>
+    <br />
+    <button mat-button mat-raised-button color="primary" [routerLink]="['/']">
+      Home
+    </button>
+  </mat-card>
+</div>

@@ -1,0 +1,93 @@
+<app-navigation></app-navigation>
+<div class="table-wrapper">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        ID
+      </th>
+      <td mat-cell *matCellDef="let purchase">{{ purchase.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Shoe name
+      </th>
+      <td mat-cell *matCellDef="let purchase">
+        {{ purchase.date | date: "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="shoeId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Shoe ID
+      </th>
+      <td mat-cell *matCellDef="let purchase">
+        <span *ngFor="let item of purchase.items"
+          >{{ item.shoe.id }} &nbsp;</span
+        >
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="shoeName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Shoe name
+      </th>
+      <td mat-cell *matCellDef="let purchase">
+        <span *ngFor="let item of purchase.items"
+          >{{ item.shoe.name }} &nbsp;</span
+        >
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Price
+      </th>
+      <td mat-cell *matCellDef="let purchase">
+        <span *ngFor="let item of purchase.items"
+          >{{ item.shoe.price }} &nbsp;</span
+        >
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Quantity
+      </th>
+      <td mat-cell *matCellDef="let purchase">
+        <span *ngFor="let item of purchase.items"
+          >{{ item.quantity }} &nbsp;</span
+        >
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Total
+      </th>
+      <td mat-cell *matCellDef="let purchase">{{ purchase.totalPrice }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        User
+      </th>
+      <td mat-cell *matCellDef="let purchase">{{ purchase.user.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="userAddress">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        User address
+      </th>
+      <td mat-cell *matCellDef="let purchase">{{ purchase.user.address }}</td>
+    </ng-container>
+    <ng-container matColumnDef="userCity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        User city
+      </th>
+      <td mat-cell *matCellDef="let purchase">{{ purchase.user.city }}</td>
+    </ng-container>
+    <ng-container matColumnDef="userCountry">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        User country
+      </th>
+      <td mat-cell *matCellDef="let purchase">{{ purchase.user.country }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

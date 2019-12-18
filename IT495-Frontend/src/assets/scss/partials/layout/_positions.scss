@@ -1,0 +1,75 @@
+.m-10 {
+  margin: 10px;
+}
+
+.blue {
+  color: $primary-color;
+}
+.card {
+  margin: 0 auto;
+  background: $white-color;
+  width: 500px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.center-wrapper {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.w-60 {
+  width: 60vw;
+}
+
+.h-90 {
+  height: 90vh;
+}
+.shoe-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+.shoe {
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.right-align-top {
+  position: absolute;
+  right: 22px;
+  top: 10px;
+}
+
+.right-align {
+  padding-bottom: 20px;
+  position: absolute;
+  right: 22px;
+  bottom: 0px;
+  cursor: pointer;
+  color: $primary-color;
+}
+.card-style {
+  display: grid;
+  grid-template-columns: 140px 3fr 1fr;
+  column-gap: 1em;
+}
+.image-card {
+  min-height: 140px;
+  object-fit: cover;
+}

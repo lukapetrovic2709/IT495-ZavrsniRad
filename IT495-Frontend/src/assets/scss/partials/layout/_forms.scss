@@ -1,0 +1,48 @@
+.form-group {
+  input {
+    color: $gray-light;
+    width: 100%;
+    font-weight: 300;
+  }
+}
+.mat-form-field {
+  width: 100%;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: $gray-light;
+  -webkit-box-shadow: 0 0 0px 1000px #424242 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.grid-4-2 {
+  margin-top: 30px;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 15px;
+}
+
+//custom file upload input
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "Select image";
+  display: inline-block;
+  background: $primary-color;
+  border-radius: 4px;
+  padding: 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}

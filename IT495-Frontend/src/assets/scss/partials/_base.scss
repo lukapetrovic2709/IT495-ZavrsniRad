@@ -1,0 +1,20 @@
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $primary-font;
+}
+body {
+  background-color: $black-color-opacity9;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-container {
+  padding: 10px;
+  background-color: $gray-dark;
+}

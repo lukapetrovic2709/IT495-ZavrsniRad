@@ -1,0 +1,58 @@
+<app-navigation></app-navigation>
+
+<mat-card class="w-60 shoe ">
+  <div class="card-style">
+    <img
+      [src]="'data:image/png;base64,' + shoe.imagePath"
+      class="image-card"
+      alt="image of the shoe"
+      height="auto"
+      width="100%"
+    />
+    <div>
+      <h1>{{ shoe.name }}</h1>
+      <p>{{ shoe.categoryName }}</p>
+      <p class="price right-align-top">
+        Price: <span>{{ shoe.price }} </span> RSD
+      </p>
+    </div>
+  </div>
+  <form #pickSizeForm class="select-size">
+    <div>
+      <mat-form-field>
+        <mat-label>Avaliable sizes</mat-label>
+        <mat-select
+          [disabled]="disabled"
+          id="sizes"
+          name="sizes"
+          [(ngModel)]="item.size"
+        >
+          <mat-option *ngFor="let size of sizes" [value]="size">{{
+            size.value
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="shoeQuantity"
+        id="shoeQuantity"
+        placeholder="How many shoes?"
+        [(ngModel)]="item.quantity"
+        #shoeQuantity="ngModel"
+        required
+      />
+    </mat-form-field>
+  </form>
+  <button
+    type="submit"
+    (click)="orderShoe()"
+    mat-button
+    mat-raised-button
+    color="primary"
+  >
+    Order
+  </button>
+</mat-card>

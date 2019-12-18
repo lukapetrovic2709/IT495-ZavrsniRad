@@ -1,0 +1,48 @@
+<app-navigation></app-navigation>
+
+<div class="table-wrapper">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        ID
+      </th>
+      <td mat-cell *matCellDef="let category">{{ category.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Category name
+      </th>
+      <td mat-cell *matCellDef="let category">{{ category.name }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+<mat-card class="w-60 center">
+  <form>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="categoryName"
+        id="categoryName"
+        placeholder="Category name"
+        [(ngModel)]="category.name"
+        #categoryName="ngModel"
+        required
+      />
+    </mat-form-field>
+    <div class="center">
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        (click)="submitNewCategory()"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</mat-card>

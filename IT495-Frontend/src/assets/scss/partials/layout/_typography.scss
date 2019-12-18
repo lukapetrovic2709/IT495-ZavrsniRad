@@ -1,0 +1,38 @@
+.small-typo {
+  font-size: 10px;
+}
+
+.header {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+}
+
+.small-span {
+  font-size: 10px;
+  color: $gray-light;
+}
+.regular-typo {
+  font-size: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  font-weight: 400;
+  color: $gray-light;
+}
+
+.price {
+  font-size: 15px;
+  span {
+    font-weight: 600;
+    font-size: 25px;
+    color: $primary-color;
+  }
+}

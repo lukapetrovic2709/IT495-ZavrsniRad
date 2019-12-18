@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+  <button mat-button [routerLink]="['/home']">
+    Home
+  </button>
+  <button mat-button *ngIf="roles === ADMIN" [routerLink]="['/category']">
+    Category
+  </button>
+  <button mat-button *ngIf="roles === ADMIN" [routerLink]="['/users']">
+    User Managment
+  </button>
+  <button mat-button *ngIf="roles === ADMIN" [routerLink]="['/create-shoe']">
+    Create shoe
+  </button>
+  <button mat-button *ngIf="roles === ADMIN" [routerLink]="['/purchases']">
+    See purchases
+  </button>
+
+  <span class="example-fill-remaining-space"></span>
+
+  <button mat-button *ngIf="roles === USER" [routerLink]="['/shopping-cart']">
+    <mat-icon>add_shopping_cart</mat-icon>
+  </button>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button
+      mat-menu-item
+      *ngIf="roles === USER"
+      [routerLink]="['/my-purchases']"
+    >
+      See my purchases
+    </button>
+    <button mat-menu-item *ngIf="roles === USER" [routerLink]="['/edit-user']">
+      My profile
+    </button>
+    <button
+      mat-menu-item
+      *ngIf="roles === USER"
+      [routerLink]="['/change-password']"
+    >
+      Change password
+    </button>
+    <button mat-menu-item [routerLink]="['/']" (click)="logout()">
+      Logout
+    </button>
+  </mat-menu>
+</mat-toolbar>

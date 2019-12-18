@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">Login </mat-toolbar>
+
+<div class="center-wrapper">
+  <mat-card class="w-60">
+    <form action="">
+      <div class="form-group">
+        <mat-form-field>
+          <input
+            matInput
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter e-mail address"
+            [(ngModel)]="emailInput"
+            required
+            #email="ngModel"
+          />
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            [(ngModel)]="passwordInput"
+            #password="ngModel"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </form>
+    <div class="center">
+      <button mat-button mat-raised-button color="primary" (click)="onSubmit()">
+        Login</button
+      ><br />
+      <br />
+      <span class="small-span">OR</span>
+      <br />
+      <a mat-button color="accent" [routerLink]="['/register']"> Register </a>
+    </div>
+  </mat-card>
+</div>

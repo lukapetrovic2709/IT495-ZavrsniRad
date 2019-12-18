@@ -1,0 +1,21 @@
+@import "../../../../assets/scss/partials/helpers/variables";
+
+mat-card {
+  border: 4px solid $primary-color;
+}
+
+.filter-position {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 6fr 1fr 0.5fr;
+  grid-column-gap: 1em;
+  height: auto;
+  margin-top: 10px;
+}
+
+.form-position {
+  display: flex;
+  div {
+    margin-left: 10px;
+  }
+}
